@@ -74,11 +74,16 @@ int main(int argc, char* argv[]){
 		i++;
 	}
 	ifs.close();
-	
+
+	printf("%d %d\n",node_num,edge_num);
+	for(i=0;i<edge_num)
+	{
+		printf("%d %d %d\n",node_ID1[i],node_ID2[i],weight[i])
+	}
 	
 	/* Function */
 
-	sort(num,a);
+	//sort(num,a);
 
 	double run_time = (double)(clock() - start_time) / CLOCKS_PER_SEC;
 
