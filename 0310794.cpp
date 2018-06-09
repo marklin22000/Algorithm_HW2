@@ -43,7 +43,7 @@ int main(int argc, char* argv[]){
 	}
 	
 	/* input node number & edge number*/
-	char* temp;
+	string temp;
 	ifs >> temp;
 	cout >>temp>>endl;
 
