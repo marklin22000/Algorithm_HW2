@@ -43,16 +43,16 @@ void SSSP(graph *g, int S_node)
 	
 	//distance array
 	//int d[tV];
-	int *d;
+	long *d;
 	d= new long [tV];
 	//predecessor array
 	//int p[tV];
-	int *p;
+	long *p;
 	p= new long [tV];
 
 	//step 1: initilaize graph: d[i] and p[i]
 	for (i = 0; i < tV; i++) {
-		d[i] = INT_MAX;
+		d[i] = -9999;
 		p[i] = 0;
 	}
 	//special case: source
@@ -66,7 +66,7 @@ void SSSP(graph *g, int S_node)
 			v = g->edge[j].v;
 			w = g->edge[j].w;
 			// relax d[v] and p[v] if d[u]+w is smaller than current d[v]
-			if (d[u]!=INT_MAX && d[v]>d[u]+w) {
+			if (d[u]!= -9999 && d[v]>d[u]+w) {
 				d[v] = d[u] + w;
 				p[v] = u;
 			}
@@ -78,9 +78,9 @@ void SSSP(graph *g, int S_node)
 		u = g->edge[i].u;
 		v = g->edge[i].v;
 		w = g->edge[i].w;
-		if (d[u]!=INT_MAX && d[v]>d[u]+w) {
+		if (d[u]!= -9999 && d[v]>d[u]+w) {
 			printf("[Error] A negative-weight cycle detected!\n");
-			return -1;
+			return ;
 		}
 	}
 	
@@ -153,8 +153,8 @@ int main(int argc, char* argv[]){
 	ifs.close();
 	
 	/* initial all ans to -9999 */
-	ans_cost = new long [node_num];
-	for(i=0; i<node_num; i++)
+	ans_cost = new long [g->V];
+	for(i=0; i<g->V; i++)
 	{
 		ans_cost[i] = -9999;
 	}
