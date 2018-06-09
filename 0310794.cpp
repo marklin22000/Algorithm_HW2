@@ -45,7 +45,7 @@ int main(int argc, char* argv[]){
 	/* input node number & edge number*/
 	char* temp;
 	ifs >> temp;
-	printf("%s",temp);
+	cout >>temp>>endl;
 
 	ifs >> edge_num;
 	long *node_ID1;
