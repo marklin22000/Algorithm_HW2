@@ -43,9 +43,9 @@ int main(int argc, char* argv[]){
 	}
 	
 	/* input node number & edge number*/
-	string temp;
-	ifs >> temp;
-	cout >>temp>>endl;
+	string temp1 temp2;
+	ifs >> temp1 >> temp2;
+	cout << temp1 << temp2 <<endl;
 
 	ifs >> edge_num;
 	long *node_ID1;
