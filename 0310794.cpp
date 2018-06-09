@@ -43,7 +43,10 @@ int main(int argc, char* argv[]){
 	}
 	
 	/* input node number & edge number*/
-	ifs >> node_num;
+	string temp;
+	ifs >> temp;
+	printf("%s",temp);
+	
 	ifs >> edge_num;
 	long *node_ID1;
 	node_ID1= new long [edge_num];
@@ -78,7 +81,7 @@ int main(int argc, char* argv[]){
 	}
 	ifs.close();
 	printf("GGGGG\n");
-	
+
 	printf("%d %d\n",node_num,edge_num);
 	for(i=0; i<edge_num; i++)
 	{
