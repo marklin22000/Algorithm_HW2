@@ -52,6 +52,7 @@ int main(int argc, char* argv[]){
 	long *weight;
 	weight= new long [edge_num];
 
+	printf("GGGGG\n");
 	int i=0;
 	for(i=0; i<edge_num; i++)
 	{
