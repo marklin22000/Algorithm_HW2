@@ -46,12 +46,13 @@ int main(int argc, char* argv[]){
 	string temp;
 	ifs >> temp;
 	cout << temp <<endl;
-	ifs >> temp;
-	node_num = std::stoi(temp);
+
+	ifs >> node_num;
+
 	ifs >> temp;
 	cout << temp <<endl;
-	ifs >> temp;
-	edge_num = std::stoi(temp);
+
+	ifs >> edge_num;
 
 	long *node_ID1;
 	node_ID1= new long [edge_num];
