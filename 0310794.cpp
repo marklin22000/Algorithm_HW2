@@ -52,7 +52,8 @@ int main(int argc, char* argv[]){
 	long *weight;
 	weight= new long [edge_num];
 
-	for(int i=0; i<edge_num; i++)
+	int i=0;
+	for(i=0; i<edge_num; i++)
 	{
 		weight[i] = -9999;
 	}
@@ -78,7 +79,7 @@ int main(int argc, char* argv[]){
 	printf("%d %d\n",node_num,edge_num);
 	for(i=0; i<edge_num; i++)
 	{
-		printf("%d %d %d\n",node_ID1[i],node_ID2[i],weight[i])
+		printf("%d %d %d\n",node_ID1[i],node_ID2[i],weight[i]);
 	}
 	
 	/* Function */
