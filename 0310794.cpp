@@ -43,10 +43,10 @@ int main(int argc, char* argv[]){
 	}
 	
 	/* input node number & edge number*/
-	string temp;
+	char* temp;
 	ifs >> temp;
 	printf("%s",temp);
-	
+
 	ifs >> edge_num;
 	long *node_ID1;
 	node_ID1= new long [edge_num];
