@@ -27,7 +27,7 @@ typedef struct {
 	Edge *edge;	//array of edges
 } graph;
 
-void displayArray(int arr[], int size) {
+void displayArray(long arr[], int size) {
 	int i;
 	for (i = 0; i < size; i ++) {
 		printf("%d ", arr[i]);
@@ -168,12 +168,12 @@ int main(int argc, char* argv[]){
 	//printf("Memory usage: %ld k-bytes\n",r_usage.ru_maxrss);
 	
 	cout << "=====  Answer Report  =====" << endl;
-	ofs << "Nodes: " << node_num << endl;
+	ofs << "Nodes: " << g->V << endl;
 	cout << "CPU Run time: " << run_time << endl;
 	cout << "Mem Usage:    " << r_usage.ru_maxrss << "kB" << endl;
 	
 	ofs << "=====  Answer Report  =====" << endl;
-	ofs << "Nodes: " << node_num << endl;
+	ofs << "Nodes: " << g->V << endl;
 	ofs << "CPU Run time: " << run_time << endl;
 	ofs << "Mem Usage:    " << r_usage.ru_maxrss << "kB" << endl;
 	//ofs << "ans: "<<endl;
