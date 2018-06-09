@@ -52,7 +52,6 @@ int main(int argc, char* argv[]){
 	long *weight;
 	weight= new long [edge_num];
 
-	printf("GGGGG\n");
 	int i=0;
 	for(i=0; i<edge_num; i++)
 	{
@@ -60,6 +59,7 @@ int main(int argc, char* argv[]){
 	}
 
 	i=0;
+	printf("GGGGG\n");
 	/* input the element in the file*/
 	while (!ifs.eof()){
 		long tmp_num;
@@ -76,7 +76,8 @@ int main(int argc, char* argv[]){
 		i++;
 	}
 	ifs.close();
-
+	printf("GGGGG\n");
+	
 	printf("%d %d\n",node_num,edge_num);
 	for(i=0; i<edge_num; i++)
 	{
