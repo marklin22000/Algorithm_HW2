@@ -59,7 +59,8 @@ int main(int argc, char* argv[]){
 	}
 
 	i=0;
-	printf("GGGGG\n");
+	printf("%d %d\n",node_num,edge_num);
+	
 	/* input the element in the file*/
 	while (!ifs.eof()){
 		long tmp_num;
