@@ -45,21 +45,16 @@ int main(int argc, char* argv[]){
 	/* input node number & edge number*/
 	string temp;
 	ifs >> temp;
-	cout << temp <<endl;
-
 	ifs >> node_num;
-
 	ifs >> temp;
-	cout << temp <<endl;
-
 	ifs >> edge_num;
 
 	long *node_ID1;
 	node_ID1= new long [edge_num];
 	long *node_ID2;
 	node_ID2= new long [edge_num];
-	long *weight;
-	weight= new long [edge_num];
+	double *weight;
+	weight= new double [edge_num];
 
 	int i=0;
 	for(i=0; i<edge_num; i++)
@@ -72,16 +67,11 @@ int main(int argc, char* argv[]){
 	
 	/* input the element in the file*/
 	while (!ifs.eof()){
-		long tmp_num;
+		ifs >> node_ID1[i];
 
-		ifs >> tmp_num;
-		node_ID1[i] = tmp_num;
+		ifs >> node_ID2[i];
 
-		ifs >> tmp_num;
-		node_ID2[i] = tmp_num;
-
-		ifs >> tmp_num;
-		weight[i] = tmp_num;
+		ifs >> weight[i];
 
 		i++;
 	}
