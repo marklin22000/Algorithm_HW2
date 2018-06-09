@@ -52,7 +52,7 @@ int main(int argc, char* argv[]){
 	long *weight;
 	weight= new long [edge_num];
 
-	for(int i=0; i<edge_num)
+	for(int i=0; i<edge_num; i++)
 	{
 		weight[i] = -9999;
 	}
@@ -76,7 +76,7 @@ int main(int argc, char* argv[]){
 	ifs.close();
 
 	printf("%d %d\n",node_num,edge_num);
-	for(i=0;i<edge_num)
+	for(i=0; i<edge_num; i++)
 	{
 		printf("%d %d %d\n",node_ID1[i],node_ID2[i],weight[i])
 	}
@@ -99,9 +99,9 @@ int main(int argc, char* argv[]){
 	ofs << "CPU Run time: " << run_time << endl;
 	ofs << "Mem Usage:    " << r_usage.ru_maxrss << endl;
 	ofs << "ans: "<<endl;
-	for (int i = 0; i < num; i++)		
+	/*for (int i = 0; i < num; i++)		
 		ofs << a[i] <<" ";
-		
+	*/	
 	ofs.close();
 	
 	return 0;
