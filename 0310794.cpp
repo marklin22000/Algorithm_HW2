@@ -63,8 +63,6 @@ int main(int argc, char* argv[]){
 	}
 
 	i=0;
-	printf("%d %d\n",node_num,edge_num);
-	
 	/* input the element in the file*/
 	while (!ifs.eof()){
 		ifs >> node_ID1[i];
@@ -76,12 +74,10 @@ int main(int argc, char* argv[]){
 		i++;
 	}
 	ifs.close();
-	printf("GGGGG\n");
 
-	printf("%d %d\n",node_num,edge_num);
 	for(i=0; i<edge_num; i++)
 	{
-		printf("%d %d %d\n",node_ID1[i],node_ID2[i],weight[i]);
+		printf("%d %d %lf\n",node_ID1[i],node_ID2[i],weight[i]);
 	}
 	
 	/* Function */
