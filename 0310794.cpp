@@ -10,8 +10,8 @@
 using namespace std;
 
 long S_node = -1;
-long node_num;
-long edge_num;
+long node_num=-1;
+long edge_num=-1;
 
 int main(int argc, char* argv[]){
 
