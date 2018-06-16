@@ -137,9 +137,9 @@ int main(int argc, char* argv[]){
 	set<int> re_list;
 	set<int>::iterator it;
 
-	for(it=re_list.begin();it!=re_list.end();it++)
-		cout << *it << endl;
-	cout << "aaaaaa" << endl;
+	//for(it=re_list.begin();it!=re_list.end();it++)
+	//	cout << *it << endl;
+	//cout << "aaaaaa" << endl;
 	int *node_ID1;
 	node_ID1= new int [g->E];
 	int *node_ID2;
@@ -160,8 +160,8 @@ int main(int argc, char* argv[]){
 	}
 	ifs.close();
 
-	for(it=re_list.begin();it!=re_list.end();it++)
-		cout << *it << endl;
+	//for(it=re_list.begin();it!=re_list.end();it++)
+	//	cout << *it << endl;
 
 	//cout << re_list.size() << endl;
 	re_list.erase(re_list.begin());
@@ -232,7 +232,7 @@ int main(int argc, char* argv[]){
 			continue;
 		}
 		*/
-		cout << *it << " " << ans[i] << " " << i <<endl;
+		cout << *it << " " << ans[i] <<endl;
 	}	
 	
 	ofs << "=====  Answer Report  =====" << endl;
