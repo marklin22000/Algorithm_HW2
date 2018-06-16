@@ -138,7 +138,7 @@ int main(int argc, char* argv[]){
 	int i=0;
 	set<int> re_list;
 	set<int>::iterator it;
-	int temp;
+	int temp,temp2;
 	/* input the element in the file*/
 	while (!ifs.eof()){
 		/*
@@ -152,9 +152,9 @@ int main(int argc, char* argv[]){
 		it = re_list.find(temp);
 		g->edge[i].u = distance(re_list.begin(),it);
 
-		ifs >> temp;
-		re_list.insert(temp);
-		it = re_list.find(temp);
+		ifs >> temp2;
+		re_list.insert(temp2);
+		it = re_list.find(temp2);
 		g->edge[i].v = distance(re_list.begin(),it);
 		//ifs >> g->edge[i].u;
 		//ifs >> g->edge[i].v;
@@ -176,10 +176,14 @@ int main(int argc, char* argv[]){
 	/* Function */
 	it = re_list.find(S_node);
 	S_node = distance(re_list.begin(),it);
-	for(int j=0;j< g->E ; j++)
+	/*for(int j=0;j< g->E ; j++)
 	{
 		printf("U: %d V: %d W: %lf\n",g->edge[j].u,g->edge[j].v,g->edge[j].w);
-	}
+	}*/
+	for(it = re_list.begin();it!=re_list.end(); iter++)
+	{
+		cout<< *it << endl;
+	}	
 	//SSSP(g,S_node);
 
 	double run_time = (double)(clock() - start_time) / CLOCKS_PER_SEC;
