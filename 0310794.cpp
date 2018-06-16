@@ -230,7 +230,7 @@ int main(int argc, char* argv[]){
 			continue;
 		}
 		*/
-		printf(" %6d %6l\n",*it,ans[i]);
+		printf(" %6d %6lf\n",*it,ans[i]);
 	}	
 	
 	ofs << "=====  Answer Report  =====" << endl;
