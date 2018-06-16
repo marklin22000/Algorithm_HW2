@@ -159,7 +159,7 @@ int main(int argc, char* argv[]){
 			g->edge[i].u = distance(re_list.begin(),it);
 		else
 			g->edge[i].u = distance(re_list.begin(),it)-1;
-		
+
 		it = re_list.find(node_ID2[i]);
 		if(it==re_list.begin())
 			g->edge[i].v = distance(re_list.begin(),it);
@@ -189,7 +189,8 @@ int main(int argc, char* argv[]){
 		SSSP(g,S_node);
 	}
 	
-	
+	for(it=re_list.begin();it!=re_list.end();it++)
+		cout << *it << endl;
 	for(int j=0;j< g->E ; j++)
 	{
 		printf("U: %d V: %d W: %lf\n",g->edge[j].u,g->edge[j].v,g->edge[j].w);
