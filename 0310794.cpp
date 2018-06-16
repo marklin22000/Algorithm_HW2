@@ -29,7 +29,7 @@ typedef struct {
 	Edge *edge;	//array of edges
 } graph;
 
-void displayArray(long arr[], int size) {
+void displayArray(double arr[], int size) {
 	int i;
 	for (i = 0; i < size; i ++) {
 		printf("%d ", arr[i]);
