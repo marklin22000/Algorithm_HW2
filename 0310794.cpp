@@ -33,7 +33,7 @@ void displayArray(double arr[], int size) {
 	printf("\n");
 }
 
-double * SSSP(graph *g, int S_node)
+void  SSSP(double *ans, graph *g, int S_node)
 {
 	int i, j, u, v;
 	double w;
@@ -87,7 +87,7 @@ double * SSSP(graph *g, int S_node)
 	//print the distance and predecessor array
 	//printf("final distances: ");
 	//displayArray(d, tV);
-	return d;
+	ans = d;
 }
 
 int main(int argc, char* argv[]){
@@ -188,7 +188,7 @@ int main(int argc, char* argv[]){
 		double *ans;
 		ans = new double [g->V];
 		S_node = distance(re_list.begin(),it);
-		ans = SSSP(g,S_node);
+		SSSP(ans,g,S_node);
 	}
 	displayArray(ans, g->V);
 	/*
