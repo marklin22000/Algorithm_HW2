@@ -50,12 +50,13 @@ void SSSP(graph *g, int S_node)
 	d= new double [tV];
 	//predecessor array
 	//int p[tV];
-	//double *p;
-	//p= new double [tV];
+	double *p;
+	p= new double [tV];
 
 	//step 1: initilaize graph: d[i] and p[i]
 	for (i = 0; i < tV; i++) {
-		d[i] = 9999;
+		d[i] = INT_MAX;
+		p[i] = 0;
 	}
 	//special case: source
 	d[S_node] = 0;
@@ -68,8 +69,9 @@ void SSSP(graph *g, int S_node)
 			v = g->edge[j].v;
 			w = g->edge[j].w;
 			// relax d[v] and p[v] if d[u]+w is smaller than current d[v]
-			if (d[u]!= 9999 && d[v]>d[u]+w) {
+			if (d[u]!= INT_MAX && d[v]>d[u]+w) {
 				d[v] = d[u] + w;
+				p[v] = u;
 			}
 		}
 	}
@@ -79,7 +81,7 @@ void SSSP(graph *g, int S_node)
 		u = g->edge[i].u;
 		v = g->edge[i].v;
 		w = g->edge[i].w;
-		if (d[u]!= 9999 && d[v]>d[u]+w) {
+		if (d[u]!= INT_MAX && d[v]>d[u]+w) {
 			printf("[Error] A negative-weight cycle detected!\n");
 			return ;
 		}
@@ -188,14 +190,14 @@ int main(int argc, char* argv[]){
 		S_node = distance(re_list.begin(),it);
 		SSSP(g,S_node);
 	}
-	
+	/*
 	for(it=re_list.begin();it!=re_list.end();it++)
 		cout << *it << endl;
 	for(int j=0;j< g->E ; j++)
 	{
 		printf("U: %d V: %d W: %lf\n",g->edge[j].u,g->edge[j].v,g->edge[j].w);
 	}
-	
+	*/
 
 	double run_time = (double)(clock() - start_time) / CLOCKS_PER_SEC;
 
