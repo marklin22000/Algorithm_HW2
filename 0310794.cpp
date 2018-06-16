@@ -163,11 +163,11 @@ int main(int argc, char* argv[]){
 	double *ans;
 	ans = new double [g->V];
 	
-	/* bad input */
 	it = re_list.find(S_node);
+	/* bad input */
 	if(it == re_list.end())
 	{
-		printf("%d node is not found in %s!\n",S_node,argv[1]);
+		printf("The node index %d is not found in %s!\n",S_node,argv[1]);
 		return 0;
 	}
 	else
