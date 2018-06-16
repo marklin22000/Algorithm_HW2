@@ -168,6 +168,13 @@ int main(int argc, char* argv[]){
 		//	g->edge[i].v = distance(re_list.begin(),it)-1;
 	}
 
+	for(it=re_list.begin();it!=re_list.end();it++)
+		cout << *it << endl;
+	for(int j=0;j< g->E ; j++)
+	{
+		printf("U: %d V: %d W: %lf\n",g->edge[j].u,g->edge[j].v,g->edge[j].w);
+	}
+
 	/* Function */
 	double *ans;
 	ans = new double [g->V];
@@ -182,7 +189,7 @@ int main(int argc, char* argv[]){
 		S_node = distance(re_list.begin(),it);
 		SSSP(&ans,g,S_node);
 	}
-	displayArray(ans, g->V);
+	//displayArray(ans, g->V);
 
 	/*
 	for(it=re_list.begin();it!=re_list.end();it++)
