@@ -127,52 +127,35 @@ int main(int argc, char* argv[]){
 	ifs >> g->E;	//edge number
 
 	g->edge = (Edge*)malloc(g->E * sizeof(Edge));
-	/*
-	long *node_ID1;
-	node_ID1= new long [edge_num];
-	long *node_ID2;
-	node_ID2= new long [edge_num];
-	double *weight;
-	weight= new double [edge_num];
-	*/
+
 	int i=0;
 	set<int> re_list;
 	set<int>::iterator it;
 
-	long *temp1;
-	temp1= new long [g->E];
-	long *temp2;
-	temp2= new long [g->E];
+	long *node_ID1;
+	node_ID1= new long [g->E];
+	long *node_ID2;
+	node_ID2= new long [g->E];
 	/* input the element in the file*/
 	while (!ifs.eof()){
-		/*
+
 		ifs >> node_ID1[i];
+		re_list.insert(node_ID1[i]);
+		
 		ifs >> node_ID2[i];
-		ifs >> weight[i];
-		*/
-
-		ifs >> temp1[i];
-		re_list.insert(temp1[i]);
-		//it = re_list.find(temp);
-		//g->edge[i].u = distance(re_list.begin(),it);
-
-		ifs >> temp2[i];
-		re_list.insert(temp2[i]);
-		//it = re_list.find(temp2);
-		//g->edge[i].v = distance(re_list.begin(),it);
-		//ifs >> g->edge[i].u;
-		//ifs >> g->edge[i].v;
+		re_list.insert(node_ID2[i]);
+		
 		ifs >> g->edge[i].w;
-		//printf("U: %d V: %d W: %lf\n",g->edge[i].u,g->edge[i].v,g->edge[i].w);
+		
 		i++;
 	}
 	ifs.close();
 	
 	for(i=0; i<g->E; i++)
 	{
-		it = re_list.find(temp1[i]);
+		it = re_list.find(node_ID1[i]);
 		g->edge[i].u = distance(re_list.begin(),it);
-		it = re_list.find(temp2[i]);
+		it = re_list.find(node_ID2[i]);
 		g->edge[i].v = distance(re_list.begin(),it);
 	}
 
@@ -187,13 +170,22 @@ int main(int argc, char* argv[]){
 
 	/* Function */
 	it = re_list.find(S_node);
-	S_node = distance(re_list.begin(),it);
+	if(it == re_list.end())
+	{
+		printf("Not a valid node!\n");
+	}
+	else
+	{
+		S_node = distance(re_list.begin(),it);
+		SSSP(g,S_node);
+	}
+	
+	/*
 	for(int j=0;j< g->E ; j++)
 	{
 		printf("U: %d V: %d W: %lf\n",g->edge[j].u,g->edge[j].v,g->edge[j].w);
 	}
-		
-	//SSSP(g,S_node);
+	*/	
 
 	double run_time = (double)(clock() - start_time) / CLOCKS_PER_SEC;
 
