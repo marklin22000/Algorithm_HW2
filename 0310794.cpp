@@ -213,7 +213,7 @@ int main(int argc, char* argv[]){
 	//printf("Memory usage: %ld k-bytes\n",r_usage.ru_maxrss);
 	
 	cout << "=====  Answer Report  =====" << endl;
-	cout << "Nodes: " << S_node << endl;
+	cout << "Nodes: " << g->V << endl;
 	cout << "CPU Run time: " << run_time << endl;
 	cout << "Mem Usage:    " << r_usage.ru_maxrss << "kB" << endl;
 	for(it=re_list.begin(),i=0;it!=re_list.end();it++,i++)
@@ -232,10 +232,16 @@ int main(int argc, char* argv[]){
 	ofs << "Nodes: " << g->V << endl;
 	ofs << "CPU Run time: " << run_time << endl;
 	ofs << "Mem Usage:    " << r_usage.ru_maxrss << "kB" << endl;
-	//ofs << "ans: "<<endl;
+	ofs << "ans: "<<endl;
 	/*for (int i = 0; i < num; i++)		
 		ofs << a[i] <<" ";
 	*/	
+	for(it=re_list.begin(),i=0;it!=re_list.end();it++,i++)
+	{
+		ofs << setprecision(1);
+		ofs << setw(8) << *it << setw(6) << ans[i] << endl;
+		//printf("%8d    %-6.1lf\n",*it,ans[i]);
+	}
 	ofs.close();
 	
 	return 0;
