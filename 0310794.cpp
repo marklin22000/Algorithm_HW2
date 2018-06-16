@@ -209,6 +209,7 @@ int main(int argc, char* argv[]){
 	ofs << "Nodes: " << g->V << endl;
 	cout << "CPU Run time: " << run_time << endl;
 	cout << "Mem Usage:    " << r_usage.ru_maxrss << "kB" << endl;
+	cout << ans.size() << endl;
 	for(it=re_list.begin(),i=0;it!=re_list.end();it++,i++)
 	{
 		if(it==re_list.begin())
