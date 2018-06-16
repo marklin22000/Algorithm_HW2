@@ -33,7 +33,7 @@ void displayArray(double arr[], int size) {
 	printf("\n");
 }
 
-void SSSP(graph *g, int S_node)
+double * SSSP(graph *g, int S_node)
 {
 	int i, j, u, v;
 	double w;
@@ -46,13 +46,13 @@ void SSSP(graph *g, int S_node)
 	d= new double [tV];
 	//predecessor array
 	//int p[tV];
-	double *p;
-	p= new double [tV];
+	//double *p;
+	//p= new double [tV];
 
 	//step 1: initilaize graph: d[i] and p[i]
 	for (i = 0; i < tV; i++) {
 		d[i] = INT_MAX;
-		p[i] = 0;
+		//p[i] = 0;
 	}
 	//special case: source
 	d[S_node] = 0;
@@ -67,7 +67,7 @@ void SSSP(graph *g, int S_node)
 			// relax d[v] and p[v] if d[u]+w is smaller than current d[v]
 			if (d[u]!= INT_MAX && d[v]>d[u]+w) {
 				d[v] = d[u] + w;
-				p[v] = u;
+				//p[v] = u;
 			}
 		}
 	}
@@ -85,8 +85,9 @@ void SSSP(graph *g, int S_node)
 	
 	//No negative weight cycle found!
 	//print the distance and predecessor array
-	printf("final distances: ");
-	displayArray(d, tV);
+	//printf("final distances: ");
+	//displayArray(d, tV);
+	return d;
 }
 
 int main(int argc, char* argv[]){
@@ -183,9 +184,12 @@ int main(int argc, char* argv[]){
 	}
 	else
 	{
+		double *ans;
+		ans = new double [g->V];
 		S_node = distance(re_list.begin(),it);
-		SSSP(g,S_node);
+		ans = SSSP(g,S_node);
 	}
+	displayArray(ans, g->V);
 	/*
 	for(it=re_list.begin();it!=re_list.end();it++)
 		cout << *it << endl;
@@ -205,6 +209,8 @@ int main(int argc, char* argv[]){
 	ofs << "Nodes: " << g->V << endl;
 	cout << "CPU Run time: " << run_time << endl;
 	cout << "Mem Usage:    " << r_usage.ru_maxrss << "kB" << endl;
+	for(it=re_list.begin()+1,i=0;it!=re_list.end();it++,i++)
+		cout << *it << " " << ans[i] <<endl;
 	
 	ofs << "=====  Answer Report  =====" << endl;
 	ofs << "Nodes: " << g->V << endl;
