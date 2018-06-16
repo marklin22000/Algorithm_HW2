@@ -150,7 +150,9 @@ int main(int argc, char* argv[]){
 		i++;
 	}
 	ifs.close();
+	cout << re_list.size() << endl;
 	re_list.erase(re_list.begin());
+	cout << re_list.size() << endl;
 	for(i=0; i<g->E; i++)
 	{
 		it = re_list.find(node_ID1[i]);
