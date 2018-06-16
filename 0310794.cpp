@@ -85,7 +85,7 @@ void  SSSP(double *ans[], graph *g, int S_node)
 	for(i=0;i<tE;i++)
 	{
 		u = g->edge[i].u;
-		if(d[u]==INT_MAX)
+		if(abs(d[u]-INT_MAX)<10000)
 			d[u] = -9999;
 	}
 
