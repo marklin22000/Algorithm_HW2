@@ -131,6 +131,9 @@ int main(int argc, char* argv[]){
 	set<int> re_list;
 	set<int>::iterator it;
 
+	for(it=re_list.begin();it!=re_list.end();it++)
+		cout << *it << endl;
+	cout << "aaaaaa" << endl;
 	int *node_ID1;
 	node_ID1= new int [g->E];
 	int *node_ID2;
@@ -151,6 +154,9 @@ int main(int argc, char* argv[]){
 	}
 	ifs.close();
 
+	for(it=re_list.begin();it!=re_list.end();it++)
+		cout << *it << endl;
+
 	//cout << re_list.size() << endl;
 	re_list.erase(re_list.begin());
 	for(i=0; i<g->E; i++)
@@ -168,8 +174,8 @@ int main(int argc, char* argv[]){
 		//	g->edge[i].v = distance(re_list.begin(),it)-1;
 	}
 
-	for(it=re_list.begin();it!=re_list.end();it++)
-		cout << *it << endl;
+	//for(it=re_list.begin();it!=re_list.end();it++)
+	//	cout << *it << endl;
 	//for(int j=0;j< g->E ; j++)
 	//{
 	//	printf("U: %d V: %d W: %lf\n",g->edge[j].u,g->edge[j].v,g->edge[j].w);
