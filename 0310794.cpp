@@ -192,14 +192,9 @@ int main(int argc, char* argv[]){
 	
 	it = re_list.find(S_node);
 	if(it == re_list.end())
-	{
 		printf("Not a valid node!\n");
-	}
 	else
-	{
-		S_node = distance(re_list.begin(),it);
-		SSSP(&ans,g,S_node);
-	}
+		SSSP(&ans,g,distance(re_list.begin(),it));
 	//displayArray(ans, g->V);
 
 	/*
@@ -218,7 +213,7 @@ int main(int argc, char* argv[]){
 	//printf("Memory usage: %ld k-bytes\n",r_usage.ru_maxrss);
 	
 	cout << "=====  Answer Report  =====" << endl;
-	cout << "Nodes: " << g->V << endl;
+	cout << "Nodes: " << S_node << endl;
 	cout << "CPU Run time: " << run_time << endl;
 	cout << "Mem Usage:    " << r_usage.ru_maxrss << "kB" << endl;
 	for(it=re_list.begin(),i=0;it!=re_list.end();it++,i++)
