@@ -238,8 +238,7 @@ int main(int argc, char* argv[]){
 	*/	
 	for(it=re_list.begin(),i=0;it!=re_list.end();it++,i++)
 	{
-		ofs << setprecision(1);
-		ofs << setw(8) << *it << setw(6) << ans[i] << endl;
+		ofs << *it << "  " << ans[i] << endl;
 		//printf("%8d    %-6.1lf\n",*it,ans[i]);
 	}
 	ofs.close();
