@@ -82,7 +82,13 @@ void  SSSP(double *ans[], graph *g, int S_node)
 			return ;
 		}
 	}
-	
+	for(i=0;i<tE;i++)
+	{
+		u = g->edge[i].u;
+		if(d[u]==INT_MAX)
+			d[u] = -9999;
+	}
+
 	//No negative weight cycle found!
 	//print the distance and predecessor array
 	//printf("final distances: ");
