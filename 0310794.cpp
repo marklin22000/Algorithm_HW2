@@ -18,7 +18,8 @@ long *ans_cost;
 
 //struct edge of graph
 typedef struct {
-	int u, v, w;
+	int u, v;
+	double w;
 } Edge;
 
 //struct graph composed of edges
@@ -158,7 +159,7 @@ int main(int argc, char* argv[]){
 		//ifs >> g->edge[i].u;
 		//ifs >> g->edge[i].v;
 		ifs >> g->edge[i].w;
-		printf("U: %d V: %d W: %d\n",g->edge[i].u,g->edge[i].v,g->edge[i].w);
+		printf("U: %d V: %d W: %lf\n",g->edge[i].u,g->edge[i].v,g->edge[i].w);
 		i++;
 	}
 	ifs.close();
@@ -177,7 +178,7 @@ int main(int argc, char* argv[]){
 	S_node = distance(re_list.begin(),it);
 	for(int j=0;j< g->E ; j++)
 	{
-		printf("U: %d V: %d W: %d\n",g->edge[j].u,g->edge[j].v,g->edge[j].w);
+		printf("U: %d V: %d W: %lf\n",g->edge[j].u,g->edge[j].v,g->edge[j].w);
 	}
 	//SSSP(g,S_node);
 
