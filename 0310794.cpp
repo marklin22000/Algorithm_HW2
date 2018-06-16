@@ -133,10 +133,10 @@ int main(int argc, char* argv[]){
 	set<int> re_list;
 	set<int>::iterator it;
 
-	long *node_ID1;
-	node_ID1= new long [g->E];
-	long *node_ID2;
-	node_ID2= new long [g->E];
+	int *node_ID1;
+	node_ID1= new int [g->E];
+	int *node_ID2;
+	node_ID2= new int [g->E];
 	/* input the element in the file*/
 	while (!ifs.eof()){
 
@@ -155,16 +155,16 @@ int main(int argc, char* argv[]){
 	for(i=0; i<g->E; i++)
 	{
 		it = re_list.find(node_ID1[i]);
-		if(it==re_list.begin())
+		//if(it==re_list.begin())
 			g->edge[i].u = distance(re_list.begin(),it);
-		else
-			g->edge[i].u = distance(re_list.begin(),it)-1;
+		//else
+		//	g->edge[i].u = distance(re_list.begin(),it)-1;
 
 		it = re_list.find(node_ID2[i]);
-		if(it==re_list.begin())
+		//if(it==re_list.begin())
 			g->edge[i].v = distance(re_list.begin(),it);
-		else
-			g->edge[i].v = distance(re_list.begin(),it)-1;
+		//else
+		//	g->edge[i].v = distance(re_list.begin(),it)-1;
 	}
 
 
