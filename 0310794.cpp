@@ -156,13 +156,13 @@ int main(int argc, char* argv[]){
 	{
 		it = re_list.find(node_ID1[i]);
 		//if(it==re_list.begin())
-			g->edge[i].u = distance(re_list.begin(),it);
+			g->edge[i].u = distance(re_list.begin(),it)-1;
 		//else
 		//	g->edge[i].u = distance(re_list.begin(),it)-1;
 
 		it = re_list.find(node_ID2[i]);
 		//if(it==re_list.begin())
-			g->edge[i].v = distance(re_list.begin(),it);
+			g->edge[i].v = distance(re_list.begin(),it)-1;
 		//else
 		//	g->edge[i].v = distance(re_list.begin(),it)-1;
 	}
