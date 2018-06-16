@@ -53,7 +53,6 @@ void SSSP(graph *g, int S_node)
 	//step 1: initilaize graph: d[i] and p[i]
 	for (i = 0; i < tV; i++) {
 		d[i] = -9999;
-		p[i] = 0;
 	}
 	//special case: source
 	d[S_node] = 0;
@@ -68,7 +67,6 @@ void SSSP(graph *g, int S_node)
 			// relax d[v] and p[v] if d[u]+w is smaller than current d[v]
 			if (d[u]!= -9999 && d[v]>d[u]+w) {
 				d[v] = d[u] + w;
-				p[v] = u;
 			}
 		}
 	}
@@ -88,8 +86,6 @@ void SSSP(graph *g, int S_node)
 	//print the distance and predecessor array
 	printf("final distances: ");
 	displayArray(d, tV);
-	printf("final parents: ");
-	displayArray(p, tV);
 }
 
 int main(int argc, char* argv[]){
