@@ -152,21 +152,17 @@ int main(int argc, char* argv[]){
 	}
 	ifs.close();
 	//cout << re_list.size() << endl;
-	for(it=re_list.begin();it!=re_list.end();it++)
-		cout << *it << endl;
-	re_list.erase(re_list.begin());
-	cout << re_list.size() << endl;
 	for(i=0; i<g->E; i++)
 	{
 		it = re_list.find(node_ID1[i]);
 		//if(it==re_list.begin())
-			g->edge[i].u = distance(re_list.begin(),it);
+			g->edge[i].u = distance(re_list.begin(),it)-1;
 		//else
 		//	g->edge[i].u = distance(re_list.begin(),it)-1;
 
 		it = re_list.find(node_ID2[i]);
 		//if(it==re_list.begin())
-			g->edge[i].v = distance(re_list.begin(),it);
+			g->edge[i].v = distance(re_list.begin(),it)-1;
 		//else
 		//	g->edge[i].v = distance(re_list.begin(),it)-1;
 	}
@@ -214,14 +210,14 @@ int main(int argc, char* argv[]){
 	cout << "CPU Run time: " << run_time << endl;
 	cout << "Mem Usage:    " << r_usage.ru_maxrss << "kB" << endl;
 	for(it=re_list.begin(),i=0;it!=re_list.end();it++,i++)
-	{/*
+	{
 		if(it==re_list.begin())
 		{
 			i--;
 			continue;
 		}
-		*/
-		cout << *it << " " << ans[i] <<endl;
+		
+		cout << *it << " " << ans[i] << " " << i <<endl;
 	}	
 	
 	ofs << "=====  Answer Report  =====" << endl;
