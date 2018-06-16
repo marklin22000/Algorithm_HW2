@@ -129,7 +129,6 @@ int main(int argc, char* argv[]){
 	g->edge = (Edge*)malloc(g->E * sizeof(Edge));
 
 	set<int> re_list;
-	cout << re_list.size() << endl;
 	set<int>::iterator it;
 
 	int *node_ID1;
@@ -142,16 +141,18 @@ int main(int argc, char* argv[]){
 
 		ifs >> node_ID1[i];
 		re_list.insert(node_ID1[i]);
-		cout << re_list.size() << endl;
+		//cout << re_list.size() << endl;
 		ifs >> node_ID2[i];
 		re_list.insert(node_ID2[i]);
-		cout << re_list.size() << endl;
+		//cout << re_list.size() << endl;
 		ifs >> g->edge[i].w;
 		
 		i++;
 	}
 	ifs.close();
-	//cout << re_list.size() << endl;
+
+	cout << re_list.size() << endl;
+	re_list.erase(re_list.begin());
 	for(i=0; i<g->E; i++)
 	{
 		it = re_list.find(node_ID1[i]);
@@ -167,8 +168,8 @@ int main(int argc, char* argv[]){
 		//	g->edge[i].v = distance(re_list.begin(),it)-1;
 	}
 
-	//for(it=re_list.begin();it!=re_list.end();it++)
-	//	cout << *it << endl;
+	for(it=re_list.begin();it!=re_list.end();it++)
+		cout << *it << endl;
 	//for(int j=0;j< g->E ; j++)
 	//{
 	//	printf("U: %d V: %d W: %lf\n",g->edge[j].u,g->edge[j].v,g->edge[j].w);
@@ -212,12 +213,13 @@ int main(int argc, char* argv[]){
 	cout << sizeof(ans) << endl;
 	for(it=re_list.begin(),i=0;it!=re_list.end();it++,i++)
 	{
+		/*
 		if(it==re_list.begin())
 		{
 			i--;
 			continue;
 		}
-		
+		*/
 		cout << *it << " " << ans[i] << " " << i <<endl;
 	}	
 	
