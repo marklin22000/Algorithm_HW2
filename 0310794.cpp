@@ -158,7 +158,7 @@ int main(int argc, char* argv[]){
 		//ifs >> g->edge[i].u;
 		//ifs >> g->edge[i].v;
 		ifs >> g->edge[i].w;
-		printf("U: %d V: %d W: %d\n",g->edge[j].u,g->edge[j].v,g->edge[j].w);
+		printf("U: %d V: %d W: %d\n",g->edge[i].u,g->edge[i].v,g->edge[i].w);
 		i++;
 	}
 	ifs.close();
