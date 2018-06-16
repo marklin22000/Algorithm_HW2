@@ -46,12 +46,12 @@ void SSSP(graph *g, int S_node)
 	
 	//distance array
 	//int d[tV];
-	long *d;
-	d= new long [tV];
+	double *d;
+	d= new double [tV];
 	//predecessor array
 	//int p[tV];
-	long *p;
-	p= new long [tV];
+	//double *p;
+	//p= new double [tV];
 
 	//step 1: initilaize graph: d[i] and p[i]
 	for (i = 0; i < tV; i++) {
