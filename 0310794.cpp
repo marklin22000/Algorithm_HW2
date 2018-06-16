@@ -150,32 +150,21 @@ int main(int argc, char* argv[]){
 		i++;
 	}
 	ifs.close();
-	//re_list.erase(re_list.begin());
+	re_list.erase(re_list.begin());
 	for(i=0; i<g->E; i++)
 	{
 		it = re_list.find(node_ID1[i]);
 		//if(it==re_list.begin())
-			g->edge[i].u = distance(re_list.begin(),it)-1;
+			g->edge[i].u = distance(re_list.begin(),it);
 		//else
 		//	g->edge[i].u = distance(re_list.begin(),it)-1;
 
 		it = re_list.find(node_ID2[i]);
 		//if(it==re_list.begin())
-			g->edge[i].v = distance(re_list.begin(),it)-1;
+			g->edge[i].v = distance(re_list.begin(),it);
 		//else
 		//	g->edge[i].v = distance(re_list.begin(),it)-1;
 	}
-
-	for(it=re_list.begin();it!=re_list.end();it++)
-		cout << *it << endl;
-	/* initial all ans to -9999 */
-	/*
-	ans_cost = new long [g->V];
-	for(i=0; i<g->V; i++)
-	{
-		ans_cost[i] = -9999;
-	}
-	*/
 
 	/* Function */
 	double *ans;
@@ -213,12 +202,13 @@ int main(int argc, char* argv[]){
 	cout << "CPU Run time: " << run_time << endl;
 	cout << "Mem Usage:    " << r_usage.ru_maxrss << "kB" << endl;
 	for(it=re_list.begin(),i=0;it!=re_list.end();it++,i++)
-	{
+	{/*
 		if(it==re_list.begin())
 		{
 			i--;
 			continue;
 		}
+		*/
 		cout << *it << " " << ans[i] <<endl;
 	}	
 	
