@@ -33,7 +33,7 @@ void displayArray(double arr[], int size) {
 	printf("\n");
 }
 
-void  SSSP(double *ans, graph *g, int S_node)
+void  SSSP(double *ans[], graph *g, int S_node)
 {
 	int i, j, u, v;
 	double w;
