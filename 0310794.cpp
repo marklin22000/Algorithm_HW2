@@ -189,7 +189,7 @@ int main(int argc, char* argv[]){
 	else
 	{
 		S_node = distance(re_list.begin(),it);
-		SSSP(ans,g,S_node);
+		SSSP(&ans,g,S_node);
 	}
 	displayArray(ans, g->V);
 
