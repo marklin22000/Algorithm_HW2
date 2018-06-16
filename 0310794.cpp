@@ -55,7 +55,7 @@ void SSSP(graph *g, int S_node)
 
 	//step 1: initilaize graph: d[i] and p[i]
 	for (i = 0; i < tV; i++) {
-		d[i] = -9999;
+		d[i] = 9999;
 	}
 	//special case: source
 	d[S_node] = 0;
@@ -68,7 +68,7 @@ void SSSP(graph *g, int S_node)
 			v = g->edge[j].v;
 			w = g->edge[j].w;
 			// relax d[v] and p[v] if d[u]+w is smaller than current d[v]
-			if (d[u]!= -9999 && d[v]>d[u]+w) {
+			if (d[u]!= 9999 && d[v]>d[u]+w) {
 				d[v] = d[u] + w;
 			}
 		}
@@ -79,7 +79,7 @@ void SSSP(graph *g, int S_node)
 		u = g->edge[i].u;
 		v = g->edge[i].v;
 		w = g->edge[i].w;
-		if (d[u]!= -9999 && d[v]>d[u]+w) {
+		if (d[u]!= 9999 && d[v]>d[u]+w) {
 			printf("[Error] A negative-weight cycle detected!\n");
 			return ;
 		}
@@ -130,7 +130,6 @@ int main(int argc, char* argv[]){
 	g->edge = (Edge*)malloc(g->E * sizeof(Edge));
 
 	set<int> re_list;
-	re_list.clear();
 	set<int>::iterator it;
 
 	int *node_ID1;
@@ -157,13 +156,13 @@ int main(int argc, char* argv[]){
 	{
 		it = re_list.find(node_ID1[i]);
 		//if(it==re_list.begin())
-			g->edge[i].u = distance(re_list.begin(),it);
+			g->edge[i].u = distance(re_list.begin(),it)-1;
 		//else
 		//	g->edge[i].u = distance(re_list.begin(),it)-1;
 
 		it = re_list.find(node_ID2[i]);
 		//if(it==re_list.begin())
-			g->edge[i].v = distance(re_list.begin(),it);
+			g->edge[i].v = distance(re_list.begin(),it)-1;
 		//else
 		//	g->edge[i].v = distance(re_list.begin(),it)-1;
 	}
