@@ -138,7 +138,11 @@ int main(int argc, char* argv[]){
 	int i=0;
 	set<int> re_list;
 	set<int>::iterator it;
-	int temp,temp2;
+
+	long *temp1;
+	node_ID1= new long [edge_num];
+	long *temp2;
+	node_ID2= new long [edge_num];
 	/* input the element in the file*/
 	while (!ifs.eof()){
 		/*
@@ -147,23 +151,31 @@ int main(int argc, char* argv[]){
 		ifs >> weight[i];
 		*/
 
-		ifs >> temp;
-		re_list.insert(temp);
-		it = re_list.find(temp);
-		g->edge[i].u = distance(re_list.begin(),it);
+		ifs >> temp1[i];
+		re_list.insert(temp1[i]);
+		//it = re_list.find(temp);
+		//g->edge[i].u = distance(re_list.begin(),it);
 
-		ifs >> temp2;
-		re_list.insert(temp2);
-		it = re_list.find(temp2);
-		g->edge[i].v = distance(re_list.begin(),it);
+		ifs >> temp2[i];
+		re_list.insert(temp2[i]);
+		//it = re_list.find(temp2);
+		//g->edge[i].v = distance(re_list.begin(),it);
 		//ifs >> g->edge[i].u;
 		//ifs >> g->edge[i].v;
 		ifs >> g->edge[i].w;
-		printf("U: %d V: %d W: %lf\n",g->edge[i].u,g->edge[i].v,g->edge[i].w);
+		//printf("U: %d V: %d W: %lf\n",g->edge[i].u,g->edge[i].v,g->edge[i].w);
 		i++;
 	}
 	ifs.close();
 	
+	for(i=0; i<g->E; i++)
+	{
+		it = re_list.find(temp1[i]);
+		g->edge[i].u = distance(re_list.begin(),it);
+		it = re_list.find(temp2[i]);
+		g->edge[i].v = distance(re_list.begin(),it);
+	}
+
 	/* initial all ans to -9999 */
 	/*
 	ans_cost = new long [g->V];
@@ -176,14 +188,11 @@ int main(int argc, char* argv[]){
 	/* Function */
 	it = re_list.find(S_node);
 	S_node = distance(re_list.begin(),it);
-	/*for(int j=0;j< g->E ; j++)
+	for(int j=0;j< g->E ; j++)
 	{
 		printf("U: %d V: %d W: %lf\n",g->edge[j].u,g->edge[j].v,g->edge[j].w);
-	}*/
-	for(it = re_list.begin();it!=re_list.end(); it++)
-	{
-		cout<< *it << endl;
-	}	
+	}
+		
 	//SSSP(g,S_node);
 
 	double run_time = (double)(clock() - start_time) / CLOCKS_PER_SEC;
