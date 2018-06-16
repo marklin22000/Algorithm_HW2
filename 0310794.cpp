@@ -12,8 +12,6 @@
 #include <set>
 using namespace std;
 
-#define BIG_NUM 100000000
-
 //struct edge of graph
 typedef struct {
 	int u, v;
@@ -53,7 +51,7 @@ void  SSSP(double *ans[], graph *g, int S_node)
 
 	//step 1: initilaize graph: d[i] and p[i]
 	for (i = 0; i < tV; i++) {
-		d[i] = BIG_NUM;
+		d[i] = INT_MAX;
 		//p[i] = 0;
 	}
 	//special case: source
@@ -67,7 +65,7 @@ void  SSSP(double *ans[], graph *g, int S_node)
 			v = g->edge[j].v;
 			w = g->edge[j].w;
 			// relax d[v] and p[v] if d[u]+w is smaller than current d[v]
-			if (d[u]!= BIG_NUM && d[v]>d[u]+w) {
+			if (d[u]!= INT_MAX && d[v]>d[u]+w) {
 				d[v] = d[u] + w;
 				//p[v] = u;
 			}
@@ -79,16 +77,15 @@ void  SSSP(double *ans[], graph *g, int S_node)
 		u = g->edge[i].u;
 		v = g->edge[i].v;
 		w = g->edge[i].w;
-		if (d[u]!= BIG_NUM && d[v]>d[u]+w) {
+		if (d[u]!= INT_MAX && d[v]>d[u]+w) {
 			printf("[Error] A negative-weight cycle detected!\n");
 			return ;
 		}
 	}
-	for(i=0;i<tE;i++)
+	for(i=0;i<tV;i++)
 	{
-		u = g->edge[i].u;
-		if( d[u] == BIG_NUM )
-			d[u] = -9999;
+		if( d[i] == INT_MAX )
+			d[i] = -9999;
 	}
 
 	//No negative weight cycle found!
