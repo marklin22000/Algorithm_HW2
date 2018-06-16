@@ -178,6 +178,9 @@ int main(int argc, char* argv[]){
 	*/
 
 	/* Function */
+	double *ans;
+	ans = new double [g->V];
+	
 	it = re_list.find(S_node);
 	if(it == re_list.end())
 	{
@@ -185,12 +188,11 @@ int main(int argc, char* argv[]){
 	}
 	else
 	{
-		double *ans;
-		ans = new double [g->V];
 		S_node = distance(re_list.begin(),it);
 		SSSP(ans,g,S_node);
 	}
 	displayArray(ans, g->V);
+	
 	/*
 	for(it=re_list.begin();it!=re_list.end();it++)
 		cout << *it << endl;
