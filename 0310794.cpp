@@ -151,19 +151,19 @@ int main(int argc, char* argv[]){
 	}
 	ifs.close();
 
-	cout << re_list.size() << endl;
+	//cout << re_list.size() << endl;
 	re_list.erase(re_list.begin());
 	for(i=0; i<g->E; i++)
 	{
 		it = re_list.find(node_ID1[i]);
 		//if(it==re_list.begin())
-			g->edge[i].u = distance(re_list.begin(),it)-1;
+			g->edge[i].u = distance(re_list.begin(),it);
 		//else
 		//	g->edge[i].u = distance(re_list.begin(),it)-1;
 
 		it = re_list.find(node_ID2[i]);
 		//if(it==re_list.begin())
-			g->edge[i].v = distance(re_list.begin(),it)-1;
+			g->edge[i].v = distance(re_list.begin(),it);
 		//else
 		//	g->edge[i].v = distance(re_list.begin(),it)-1;
 	}
