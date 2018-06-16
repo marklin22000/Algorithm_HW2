@@ -129,8 +129,8 @@ int main(int argc, char* argv[]){
 
 	g->edge = (Edge*)malloc(g->E * sizeof(Edge));
 
-	int i=0;
 	set<int> re_list;
+	re_list.clear();
 	set<int>::iterator it;
 
 	int *node_ID1;
@@ -138,6 +138,7 @@ int main(int argc, char* argv[]){
 	int *node_ID2;
 	node_ID2= new int [g->E];
 	/* input the element in the file*/
+	int i=0;
 	while (!ifs.eof()){
 
 		ifs >> node_ID1[i];
@@ -156,13 +157,13 @@ int main(int argc, char* argv[]){
 	{
 		it = re_list.find(node_ID1[i]);
 		//if(it==re_list.begin())
-			g->edge[i].u = distance(re_list.begin(),it)-1;
+			g->edge[i].u = distance(re_list.begin(),it);
 		//else
 		//	g->edge[i].u = distance(re_list.begin(),it)-1;
 
 		it = re_list.find(node_ID2[i]);
 		//if(it==re_list.begin())
-			g->edge[i].v = distance(re_list.begin(),it)-1;
+			g->edge[i].v = distance(re_list.begin(),it);
 		//else
 		//	g->edge[i].v = distance(re_list.begin(),it)-1;
 	}
