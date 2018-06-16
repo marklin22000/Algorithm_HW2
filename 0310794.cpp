@@ -182,12 +182,12 @@ int main(int argc, char* argv[]){
 		SSSP(g,S_node);
 	}
 	
-	/*
+	
 	for(int j=0;j< g->E ; j++)
 	{
 		printf("U: %d V: %d W: %lf\n",g->edge[j].u,g->edge[j].v,g->edge[j].w);
 	}
-	*/	
+	
 
 	double run_time = (double)(clock() - start_time) / CLOCKS_PER_SEC;
 
