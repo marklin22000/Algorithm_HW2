@@ -12,10 +12,6 @@
 #include <set>
 using namespace std;
 
-//long node_num=-1;
-//long edge_num=-1;
-long *ans_cost;
-
 //struct edge of graph
 typedef struct {
 	int u, v;
@@ -32,7 +28,7 @@ typedef struct {
 void displayArray(double arr[], int size) {
 	int i;
 	for (i = 0; i < size; i ++) {
-		printf("%d ", arr[i]);
+		printf("%lf ", arr[i]);
 	}
 	printf("\n");
 }
