@@ -151,6 +151,8 @@ int main(int argc, char* argv[]){
 	}
 	ifs.close();
 	cout << re_list.size() << endl;
+	for(it=re_list.begin();it!=re_list.end();it++)
+		cout << *it << endl;
 	re_list.erase(re_list.begin());
 	cout << re_list.size() << endl;
 	for(i=0; i<g->E; i++)
