@@ -9,6 +9,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <limits.h>
+#include <set>
 using namespace std;
 
 //long node_num=-1;
@@ -134,6 +135,9 @@ int main(int argc, char* argv[]){
 	weight= new double [edge_num];
 	*/
 	int i=0;
+	set<int> re_list;
+	set<int>::iterator it;
+	int temp;
 	/* input the element in the file*/
 	while (!ifs.eof()){
 		/*
@@ -141,21 +145,40 @@ int main(int argc, char* argv[]){
 		ifs >> node_ID2[i];
 		ifs >> weight[i];
 		*/
-		ifs >> g->edge[i].u;
-		ifs >> g->edge[i].v;
+
+		ifs >> temp;
+		re_list.insert(temp);
+		it = re_list.find(temp);
+		g->edge[i].u = it;
+
+		ifs >> temp;
+		re_list.insert(temp);
+		it = re_list.find(temp);
+		g->edge[i].v = it;
+		//ifs >> g->edge[i].u;
+		//ifs >> g->edge[i].v;
 		ifs >> g->edge[i].w;
 		i++;
 	}
 	ifs.close();
 	
 	/* initial all ans to -9999 */
+	/*
 	ans_cost = new long [g->V];
 	for(i=0; i<g->V; i++)
 	{
 		ans_cost[i] = -9999;
 	}
+	*/
+
 	/* Function */
-	SSSP(g,S_node);
+	it = re_list.find(S_node);
+	S_node = it;
+	for(int j=0;j< g->E ; j++)
+	{
+		printf("U: %d V: %d W: %d\n",g->edge[j].u,g->edge[j].v,g->edge[j].w);
+	}
+	//SSSP(g,S_node);
 
 	double run_time = (double)(clock() - start_time) / CLOCKS_PER_SEC;
 
