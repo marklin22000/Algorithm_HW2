@@ -39,7 +39,8 @@ void displayArray(long arr[], int size) {
 
 void SSSP(graph *g, int S_node)
 {
-	int i, j, u, v, w;
+	int i, j, u, v;
+	double w;
 	int tV = g->V;
 	int tE = g->E;
 	
@@ -158,6 +159,7 @@ int main(int argc, char* argv[]){
 		it = re_list.find(node_ID2[i]);
 		g->edge[i].v = distance(re_list.begin(),it);
 	}
+
 
 	/* initial all ans to -9999 */
 	/*
