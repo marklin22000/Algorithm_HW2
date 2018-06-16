@@ -140,9 +140,9 @@ int main(int argc, char* argv[]){
 	set<int>::iterator it;
 
 	long *temp1;
-	node_ID1= new long [g->E];
+	temp1= new long [g->E];
 	long *temp2;
-	node_ID2= new long [g->E];
+	temp2= new long [g->E];
 	/* input the element in the file*/
 	while (!ifs.eof()){
 		/*
