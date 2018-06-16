@@ -87,7 +87,7 @@ void  SSSP(double *ans[], graph *g, int S_node)
 	//print the distance and predecessor array
 	//printf("final distances: ");
 	//displayArray(d, tV);
-	ans = d;
+	*ans = d;
 }
 
 int main(int argc, char* argv[]){
