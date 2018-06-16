@@ -218,10 +218,9 @@ int main(int argc, char* argv[]){
 	//printf("Memory usage: %ld k-bytes\n",r_usage.ru_maxrss);
 	
 	cout << "=====  Answer Report  =====" << endl;
-	ofs << "Nodes: " << g->V << endl;
+	cout << "Nodes: " << g->V << endl;
 	cout << "CPU Run time: " << run_time << endl;
 	cout << "Mem Usage:    " << r_usage.ru_maxrss << "kB" << endl;
-	cout << sizeof(ans) << endl;
 	for(it=re_list.begin(),i=0;it!=re_list.end();it++,i++)
 	{
 		/*
@@ -231,7 +230,7 @@ int main(int argc, char* argv[]){
 			continue;
 		}
 		*/
-		cout << *it << " " << ans[i] <<endl;
+		printf(" %6d %6lf",*it,ans[i]);
 	}	
 	
 	ofs << "=====  Answer Report  =====" << endl;
