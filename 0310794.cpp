@@ -180,7 +180,7 @@ int main(int argc, char* argv[]){
 	{
 		printf("U: %d V: %d W: %lf\n",g->edge[j].u,g->edge[j].v,g->edge[j].w);
 	}*/
-	for(it = re_list.begin();it!=re_list.end(); iter++)
+	for(it = re_list.begin();it!=re_list.end(); it++)
 	{
 		cout<< *it << endl;
 	}	
