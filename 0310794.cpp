@@ -149,12 +149,12 @@ int main(int argc, char* argv[]){
 		ifs >> temp;
 		re_list.insert(temp);
 		it = re_list.find(temp);
-		g->edge[i].u = it;
+		g->edge[i].u = distance(re_list.begin(),it);
 
 		ifs >> temp;
 		re_list.insert(temp);
 		it = re_list.find(temp);
-		g->edge[i].v = it;
+		g->edge[i].v = distance(re_list.begin(),it);
 		//ifs >> g->edge[i].u;
 		//ifs >> g->edge[i].v;
 		ifs >> g->edge[i].w;
@@ -173,7 +173,7 @@ int main(int argc, char* argv[]){
 
 	/* Function */
 	it = re_list.find(S_node);
-	S_node = it;
+	S_node = distance(re_list.begin(),it);
 	for(int j=0;j< g->E ; j++)
 	{
 		printf("U: %d V: %d W: %d\n",g->edge[j].u,g->edge[j].v,g->edge[j].w);
